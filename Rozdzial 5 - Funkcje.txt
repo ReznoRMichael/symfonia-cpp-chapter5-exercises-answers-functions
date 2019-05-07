@@ -1,0 +1,90 @@
+I. Przed wywołaniem funkcji w programie powinna nastąpić jej deklaracja. (jak z każdą nazwą w C++)
+
+II. Operator wywołania funkcji to nazwa funkcji wraz z nawiasami () i ew. argumentami wewnątrz nich. 
+
+III. Deklaracje funkcji:
+a) int fa(); - poprawna
+b) void fb(int); - poprawna
+c) void fc(void); - poprawna
+d) double fd(int, void); - poprawna
+e) fe(double, char); - niepoprawna (trzeba wyraźnie określić typ rezultatu - dawniej nie było to wymagane)
+f) void ff(double, int, int, char, int, int); - poprawna
+g) void fg(int liczba); - poprawna
+h) int fh(double wspolcz, int char znak); niepoprawna (nie ma typu int char lub brak przecinka)
+
+IV. Funkcja int f(); return 4.2; funkcja zwróci 4 (konwersja niejawna do typu int)
+
+V. Funkcja double f2(); return 4; funkcja zwróci 4
+
+VI. Funkcja void f5(); return 0; - stanie się litania błędów kompilatora (funkcja nie zwraca żadnej wartości)
+
+VII. Deklaracje funkcji:
+a) int man1(); - poprawna
+b) man2(); - niepoprawna (trzeba wyraźnie określić typ rezultatu - dawniej nie było to wymagane)
+c) int main(); - poprawna, używana w programie jako funkcja główna
+
+VIII. Deklaracja funkcji main() - w programie nie umieszczamy jej deklaracji.
+
+IX. Obie realizacje funkcji main() są poprawne (return nie jest wymagane).
+
+X. Błąd. Nie można wywoływać funkcji main().
+
+XI. Funkcja main() return 33; 33 dotrze do systemu operacyjnego jako rezultat zakończenia programu.
+
+XII. Argumenty formalne funkcji = argumenty mówiące, z jakim typem argumentów i w jakiej kolejności funkcja może zostać wywołana (podawane w nawiasach przy deklaracji i definicji.
+
+XIII. Argumenty aktualne funkcji = argumenty na rzecz których aktualnie funkcja została wywołana (podawane w nawiasie przy jej wywołaniu)
+
+XIV. Argumenty wywołania funkcji = Inna nazwa dla argumentów aktualnych.
+
+XV. Nazwy argumentów formalnych funkcji druga() = char z, int k; Argumenty aktualne = cc, 7; 'h', m
+
+XVI. f1 = 10; f2 = 11;
+
+XVII. Dwa sposoby przesłania argumentów do funkcji: przez wartość oraz przez referencję (adres). Przesłanie przez referencję może zmienić wartość obiektu przesłanego do funkcji.
+
+XVIII. Informacja o domniemanej wartości jakiegoś argumentu funkcji musi nastąpić w jej pierwszej deklaracji (może być to również definicja).
+
+XIX. Funkcja która ma wszystkie argumenty domniemane - może istnieć.
+
+XX. Funkcja która ma domniemaną wartość rezultatu - może istnieć? (return?)
+
+XXI. Funkcja z argumentem domniemanym powinna mieć argument domniemany podany jako ostatni w deklaracji.
+
+XXII. void f(int a, int b = 2, int c = 3); sposoby wywołania:
+f(1,2,3);
+f(1);
+f(1,2);
+
+XXIII. bool fx(char g = 'g', double z = 12.5) lub bool fx(char = 'g', double = 12.5)
+
+XXIV. Poprawność kolejności deklaracji:
+a) void f(int a, double, char c);
+b) void f(int a, double, char c = '2');
+c) void f(int a, double = 3, char c);
+d) void f(int a, double = 3, char = '6'); // błąd
+
+XXV. Program niepoprawny - zmienna x nie może być lokalna. Aby naprawić program, należy przenieść deklarację zmiennej x do przestrzeni globalnej.
+
+XXVI. Możliwa jest definicja argumentów domniemanych w jakimś lokalnym zakresie dla funkcji która wcześniej nie przewidywała żadnych argumentów domniemanych.
+
+XXVII. Zmianę określającą dany argument jako nienazwany należy zrobić w definicji. W deklaracji funkcji kompilator ignoruje nazwy argumentów.
+
+XXVIII. Definicję funkcji inline w programie w jednym pliku - należy umieścić na samej górze tekstu programu, lub w pliku nagłówkowym.
+Jeśli program składa się z kilku plików, to w każdym z nich powinna obowiązywać ta sama wersja funkcji inline.
+
+XXX. Nazwa zdefiniowana w pliku programu ma zakres ważności globalny - w całym pliku. Zakres ten może się rozciągać na inne pliki, jeśli użyje się przydomka extern lub użyje pliku nagłówkowego.
+
+XXXI. Nazwy obiektów zdefiniowanych w ciele funkcji z przydomkiem static lub bez mają ten sam zakres ważności - blokowy.
+
+XXXII. Czas życia obiektów zdefiniowanych w ciele funkcji z przydomkiem static = cały czas trwania programu; bez przydomka static = tylko na czas od wywołania do zakończenia działania funkcji.
+
+XXXIII. Program
+
+XXXV. Obiekty:
+globalne = wstępnie inicjalizowane zerami;
+lokalne = inicjalizowane zerami w zależności od miejsca w którym się znajdują?;
+automatyczne = "śmieci" z pamięci (na stosie);
+statyczne = inicjalizowane zerami;
+
+XXXVII. umieszczenie w pliku nagłówkowym extern int zmienna = 12; oznacza, że kompilator potraktuje to jako definicję (a nie samą deklarację).
